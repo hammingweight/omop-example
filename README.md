@@ -34,7 +34,7 @@ The `compose.yml` file spins up a PostgreQL database with a persistent volume. T
 docker compose up -d
 ```
 
-The `.sql scripts create the common data model schema (cdm) and populate the tables. To run the scripts
+The `.sql` scripts create the common data model schema (`cdm`) and populate the tables. To run the scripts
 
 ```
 export PGPASSWORD=omop
