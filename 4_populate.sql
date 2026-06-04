@@ -1,0 +1,9 @@
+\COPY cdm.concept_ancestor FROM './data/CONCEPT_ANCESTOR.csv' WITH (FORMAT text, HEADER true, NULL '');
+\COPY cdm.concept_class FROM './data/CONCEPT_CLASS.csv' WITH (FORMAT text, HEADER true, NULL '');
+\COPY cdm.concept FROM './data/CONCEPT.csv' WITH (FORMAT text, HEADER true, NULL '');
+\COPY cdm.concept_relationship FROM './data/CONCEPT_RELATIONSHIP.csv' WITH (FORMAT text, HEADER true, NULL '');
+\COPY cdm.concept_synonym FROM './data/CONCEPT_SYNONYM.csv' WITH (FORMAT text, HEADER true, NULL '');
+\COPY cdm.domain FROM './data/DOMAIN.csv' WITH (FORMAT text, HEADER true, NULL '');
+\COPY cdm.drug_strength FROM './data/DRUG_STRENGTH.csv' WITH (FORMAT text, HEADER true, NULL '');
+\COPY cdm.relationship FROM './data/RELATIONSHIP.csv' WITH (FORMAT text, HEADER true, NULL '');
+\COPY cdm.vocabulary FROM './data/VOCABULARY.csv' WITH (FORMAT text, HEADER true, NULL '');
