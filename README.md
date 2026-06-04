@@ -70,7 +70,7 @@ The following result is returned
 
 The result shows that the ICD-10 code corresponds to a *condition*, specifically a peptic ulcer.
 
-However ICD-10 does provide the standardized vocabulary for medical conditions in OMOP. We can use the `concept_id` and the `CONCEPT_RELATION` table to get the `concept_id` for the
+However ICD-10 does not provide the standardized vocabulary for medical conditions in OMOP. We can use the `concept_id` and the `CONCEPT_RELATION` table to get the `concept_id` for the
 standardized code for a peptic ulcer.
 
 ```sql
