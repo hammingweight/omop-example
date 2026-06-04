@@ -90,7 +90,7 @@ The result:
 Now we can use the value of `concept_id_2` to get the standardized code for a peptic ulcer using the `CONCEPT` table again
 
 ```sql
-SELECT concept_name,vocabulary_id,concept_code,standard_concept FROM cdm.concept WHERE concept_id='4163865';
+SELECT concept_name,vocabulary_id,concept_code,standard_concept FROM cdm.concept WHERE concept_id=4163865;
 ```
 
 which returns
