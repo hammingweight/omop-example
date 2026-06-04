@@ -47,7 +47,7 @@ psql -h localhost -p 5432 -U omop -d omop -f 5_constraints.sql
 ```
 
 ## Querying the OMOP data
-Suppose that we want to find what the ICD-10 code 'K27.3' desscribes. First, open a shell to the database
+Suppose that we want to find what the ICD-10 code "K27.3" describes. First, open a shell to the database
 
 ```bash
 psql -h localhost -p 5432 -U omop -d omop
