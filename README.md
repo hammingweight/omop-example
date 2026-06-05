@@ -104,3 +104,36 @@ which returns
 ```
 
 So the standardized concept of the ICD-10 condition with code "K27.3" should be encoded using the SNOMED code 45485004.
+
+The three queries can be combined into a single query
+
+```sql
+SELECT 
+    src.concept_code      AS icd10_code,
+    src.concept_name      AS icd10_name,
+    src.vocabulary_id,
+    src.standard_concept  AS icd10_is_standard,  -- Usually NULL or 'C'
+    
+    tgt.concept_id        AS standard_concept_id,
+    tgt.concept_code      AS standard_code,
+    tgt.concept_name      AS standard_name,
+    tgt.vocabulary_id     AS standard_vocab,     -- Usually SNOMED
+    tgt.standard_concept  AS is_standard,        -- Should be 'S'
+    tgt.domain_id
+FROM concept src
+JOIN concept_relationship cr 
+  ON src.concept_id = cr.concept_id_1
+JOIN concept tgt 
+  ON cr.concept_id_2 = tgt.concept_id
+WHERE src.concept_code = 'K27.3'
+  AND src.vocabulary_id LIKE 'ICD10%'
+  AND cr.relationship_id = 'Maps to'
+  AND CURRENT_DATE BETWEEN cr.valid_start_date AND cr.valid_end_date;
+```
+
+```text
+ icd10_code |                                icd10_name                                | vocabulary_id | icd10_is_standard | standard_concept_id | standard_code |                         standard_name                         | standard_vocab | is_standard | domain_id 
+------------+--------------------------------------------------------------------------+---------------+-------------------+---------------------+---------------+---------------------------------------------------------------+----------------+-------------+-----------
+ K27.3      | Peptic ulcer, site unspecified, acute without haemorrhage or perforation | ICD10         |                   |             4163865 | 45485004      | Acute peptic ulcer without hemorrhage AND without perforation | SNOMED         | S           | Condition
+(1 row)
+```
