@@ -105,6 +105,7 @@ which returns
 
 So the standardized concept of the ICD-10 condition with code "K27.3" should be encoded using the SNOMED code 45485004.
 
+### A single query
 The three queries can be combined into a single query
 
 ```sql
